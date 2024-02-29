@@ -1,0 +1,19 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+{% block 'content' %}
+	<img class="banner" src="{% static 'pages/img/food_banner.jpg' %}">
+	<h1>Chakula Chat Food Blog</h1>
+
+	<p>
+		<em>Welcome!</em>
+	</p>
+
+	<p>
+		<a href="{% url 'about' %}">About Me</a>
+	</p>
+	<p>
+		<a href="{% url 'contact' %}">Contact Me</a>
+	</p>
+{% endblock %}
+
