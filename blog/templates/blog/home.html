@@ -1,0 +1,19 @@
+{% extends 'base-template.html' %}
+
+{% block 'title' %}Chakula Chat Blog{% endblock %}
+
+{% block 'content' %}
+    <h1>Chakula Chat Blog</h1>
+
+    <ul>
+        {% for post in posts %}
+        <a href="{% url 'blog:post-detail' post.id %)">
+            <li>{{ post.title }} 
+                <em>({{ post.pub_date }})</em>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+

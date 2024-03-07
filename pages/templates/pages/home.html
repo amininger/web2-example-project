@@ -3,17 +3,25 @@
 
 {% block 'content' %}
 	<img class="banner" src="{% static 'pages/img/food_banner.jpg' %}">
+	<p><a href="{% url 'blog:home' %}">Back</a></p>
+
 	<h1>Chakula Chat Food Blog</h1>
 
 	<p>
 		<em>Welcome!</em>
 	</p>
 
-	<p>
-		<a href="{% url 'about' %}">About Me</a>
-	</p>
-	<p>
-		<a href="{% url 'contact' %}">Contact Me</a>
-	</p>
+	<h2>Site Links</h2>
+	<ul>
+		<a href="{% url 'blog:home' %}">
+			<li>Visit my Blog!</li>
+		</a>
+		<a href="{% url 'about' %}">
+			<li>About Me</li>
+		</a>
+		<a href="{% url 'contact' %}">
+			<li>Contact</li>
+		</a>
+	</ul>
 {% endblock %}
 
