@@ -9,3 +9,6 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title + ("*" if self.is_published else "")
+
+    def get_absolute_url(self):
+        return "/blog/post/" + str(self.id) + "/"

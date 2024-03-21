@@ -1,0 +1,12 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+{% block 'content' %}
+	<form action="/blog/send-country/" method="post">
+		{% csrf_token %}
+		{{ form }}
+
+		<input type="submit" value="Submit">
+	<form>
+{% endblock %}
+
