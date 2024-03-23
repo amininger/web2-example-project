@@ -1,15 +1,24 @@
 {% extends 'base-template.html' %}
 
-{% block 'title' %}Add Blog Post{% endblock %}
+{% block 'title' %}New Blog Post{% endblock %}
 
 {% block 'content' %}
-    <h1>Create a new Blog Post</h1>
+<main>
+    <h1>Write a new Blog Post</h1>
 
     <form action="{% url 'blog:post-add' %}" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
 
-        <input type="submit" value="Create">
+		<p>
+			<input type="submit" value="Create">
+		</p>
+		<p>
+			<a href="{% url 'blog:home' %}">
+				<input type="button" value="Back">
+			</a>
+		</p>
     </form>
+</main>
 {% endblock %}
 

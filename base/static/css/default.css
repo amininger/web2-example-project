@@ -1,0 +1,290 @@
+/******* global *********/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/******* fonts ********/
+@font-face { font-family: ZillaSlab; font-weight: 200; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Light.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 400; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Regular.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 700; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Bold.ttf'); }
+
+@font-face { font-family: Alfa; font-weight: 400; src: url('/static/fonts/Alfa/AlfaSlabOne-Regular.ttf'); }
+@font-face { font-family: Calistoga; font-weight: 400; src: url('/static/fonts/Calistoga/Calistoga-Regular.ttf'); }
+
+/******* colors *******/
+
+:root {
+	--col_black: rgb(0, 0, 0);
+	--col_gray-vdark: rgb(44, 44, 44);
+	--col_gray-dark: rgb(58, 62, 63);
+	--col_gray-mdark: rgb(80, 85, 86);
+
+	--col_gray-mlight: rgb(150, 150, 150);
+	--col_gray-light: rgb(185, 185, 185);
+	--col_gray-vlight: rgb(221, 221, 221);
+	--col_white: rgb(255, 255, 255);
+
+	--col_cyan: #4EB1CB;
+	--col_red: #CF5C60;
+	--col_orange: rgb(255, 100, 73);
+	--col_purple: #717ECD;
+	--col_green: #4AB471;
+	--col_yellow: #F3AE4E;
+	--col_pink: #D96383;
+    --col_ucbc-yellow: #FCB44B;
+
+	--font_heading: "Calistoga", serif;
+	--font_ui: "ZillaSlab", serif;
+	--font_text: "ZillaSlab", sans-serif;
+
+    --col_ucbc-green: #008367;
+    --col_ucbc-orange: #E94B37;
+    --col_ucbc-yellow: #FCB44B;
+	--col_ucbc-cyan: #4ABFAF;
+	--col_ui-1: var(--col_ucbc-orange);
+	--col_ui-2: var(--col_ucbc-green);
+	--col_ui-3: var(--col_ucbc-yellow);
+	--col_ui-4: var(--col_ucbc-cyan);
+}
+
+
+
+
+/******* body *********/
+
+body {
+	font-family: "ZillaSlab", sans-serif;
+}
+
+.hidden {
+	visibility: hidden;
+	display: none;
+}
+
+/******* headings *********/
+
+h1, h2, h3, h4, h5, h6 { 
+	font-family: "Calistoga", serif;
+	color: var(--col_header);
+}
+
+h1       { font-size: 2.0em;	margin: 1.4rem 0;		font-weight: 400; }
+h2       { font-size: 1.7em; 	margin: 1.2rem 0;     	font-weight: 400; }
+h3       { font-size: 1.4em; 	margin: 1.0rem 0;     	font-weight: 400; }
+h4,h5,h6 { font-size: 1.0em; 	margin: 0.5rem 0 0 0; 	font-weight: 700; }
+
+h1 {
+	width: 100%;
+	text-align: center;
+}
+
+/***** paragraphs *****/
+
+p {
+	line-height: 1.4;
+	margin: 0.6em 0;
+}
+
+.big {
+	font-size: 1.5em;
+}
+.small {
+	font-size: 0.66em;
+}
+
+/***** links *****/
+
+a {
+	font-weight: bold;
+	color: var(--col_accent1);
+	text-decoration: none; 
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/***** lists *****/
+
+ul, ol {
+	margin: 0.4em 0;
+	padding-left: 1.2em; 
+	list-style-position: outside;
+	line-height: 1.6;
+}
+li {
+	text-align: left;
+}
+li.indent-1 {
+	margin-left: 1em;
+}
+li.indent-2 {
+	margin-left: 2em;
+}
+
+ul.task-list{
+	list-style-type: none;
+	padding-left: 0px;
+}
+ul.task-list input {
+	margin-right: 0.5em;
+}
+
+/***** images *****/
+
+img {
+	margin: 1.5em 0;
+	display: block;
+	width: auto;
+	max-width: 100%; 
+}
+
+/***** horizontal line *****/
+
+hr {
+	width: 100%;
+	border: none;
+	border-bottom: 2px dashed var(--col_accent1);
+	margin: 1.2em 0; 
+}
+
+/***** blockquotes *****/
+blockquote {
+	margin: 1.2em 0;
+	border-left: clamp(2px, 1.5vw, 5px) solid var(--col_accent1);
+	border-radius: clamp(2px, 1.5vw, 5px);
+	width: 100%;
+	padding: 1.0em;
+	background-color: var(--col_bg-alt);
+}
+blockquote p {
+	margin: 0;
+	display: block;
+	width: 100%; 
+	font-style: italic;
+	color: var(--col_text-light);
+}
+
+/***** code/pre *****/
+pre {
+	margin: 1.2em 0;
+	width: 100%;
+	padding: 0.6em 0.9em;
+	white-space: pre-wrap;
+	tab-size: 2;
+
+	background: var(--col_bg-alt);
+	color: var(--col_text-light);
+}
+
+code {
+	margin: 0 0.2em;
+	padding: 0 0.2em;
+	background: var(--col_bg-alt);
+	font-size: 0.8em;
+}
+
+/***** tables *****/
+
+table {
+	margin: 10px 0;
+	width: 100%;
+	padding: 0;
+}
+
+thead {
+	margin: 0;
+	width: 100%;
+	padding: 0.2em 0;
+	background: var(--col_accent1);
+
+	display: flex;
+}
+thead code {
+	background: var(--col_accent1);
+}
+
+	
+
+tbody {
+	margin: 0;
+	width: 100%;
+	border: 1px solid var(--col_accent1);
+	display: block;
+}
+
+tr {
+	width: 100%;
+	min-height: 1em;
+
+	display: flex;
+}
+tbody tr:nth-child(odd){
+	background: var(--col_bg);
+}
+tbody tr:nth-child(even){
+	background: var(--col_bg-alt);
+}
+
+th {
+	padding: 0.4em 0.5em;
+	color: var(--col_white);
+	font-weight: bold;
+	text-align: left;
+	flex: 1 1;
+}
+
+td {
+	padding: 0.4em 0.5em;
+	color: var(--col_text);
+	text-align: left;
+	flex: 1 1;
+}
+
+
+/********* button ***********/
+
+button {
+	margin: 0.2em 0;
+	border: 3px solid var(--col_ui-1);
+	border-radius: 0.4em;
+	padding: 0.1em 0.5em;
+	min-width: 8em;
+
+
+	background-color: var(--col_bg);
+	color: var(--col_ui-1);
+
+	text-align: center;
+	font-family: var(--font_ui);
+	font-size: 1.00em;
+
+	cursor: pointer;
+
+	transition: 0.3s; /* Hover Transition Time */
+}
+button:hover {
+	background-color: var(--col_ui-1);
+	color: var(--col_white);
+}
+
+button.gray {
+	background-color: var(--col_gray-mlight);
+	color: var(--col_white);
+}
+button.red {
+	background-color: var(--col_red);
+	color: var(--col_white);
+}
+button.cyan {
+	background-color: var(--col_ucbc-cyan);
+	color: var(--col_white);
+}
+button.gray:hover, button.red:hover, button.cyan:hover {
+	background-color: var(--col_gray-mdark);
+	color: var(--col_white);
+}
+
+
+

@@ -3,17 +3,24 @@
 {% block 'title' %}Chakula Chat Blog{% endblock %}
 
 {% block 'content' %}
+<main>
     <h1>Chakula Chat Blog</h1>
 
+	<!-- Only show this link if they have the add permission -->
+	{% if perms.blog.add_blogpost %}
+		<a href="{% url 'blog:post-add' %}">Create a new blog post</a>
+	{% endif %}
+
+	<h2>Recent Posts</h2>
     <ul>
         {% for post in posts %}
-        <a href="{% url 'blog:post-detail' post.id %)">
+        <a href="{% url 'blog:post-detail' post.id %}">
             <li>{{ post.title }} 
                 <em>({{ post.pub_date }})</em>
             </li>
         </a>
         {% endfor %}
     </ul>
-
+</main>
 {% endblock %}
 

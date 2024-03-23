@@ -1,7 +1,221 @@
-h1 {
-	color: #F00;
+/******* global *********/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-.banner {
+/******* fonts ********/
+@font-face { font-family: ZillaSlab; font-weight: 200; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Light.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 400; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Regular.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 700; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Bold.ttf'); }
+
+@font-face { font-family: Alfa; font-weight: 400; src: url('/static/fonts/Alfa/AlfaSlabOne-Regular.ttf'); }
+@font-face { font-family: Calistoga; font-weight: 400; src: url('/static/fonts/Calistoga/Calistoga-Regular.ttf'); }
+
+:root {
+	--font_heading: "Calistoga", serif;
+	--font_text: "ZillaSlab", sans-serif;
+
+	font-size: clamp(16px, 2.2vw, 20px);
+}
+
+/******* colors *******/
+
+:root {
+	/** Shades of black to white **/
+	--color_black: rgb(0, 0, 0);
+	--color_vdark: rgb(44, 44, 44);
+	--color_dark: rgb(58, 62, 63);
+	--color_mdark: rgb(80, 85, 86);
+	--color_mlight: rgb(150, 150, 150);
+	--color_light: rgb(185, 185, 185);
+	--color_vlight: rgb(221, 221, 221);
+	--color_white: rgb(255, 255, 255);
+
+	--color_cyan: #4EB1CB;
+	--color_red: #CF5C60;
+	--color_orange: rgb(255, 100, 73);
+	--color_purple: #717ECD;
+	--color_green: #4AB471;
+	--color_yellow: #F3AE4E;
+	--color_pink: #D96383;
+
+    --color_ucbc-green: #008367;
+    --color_ucbc-orange: #E94B37;
+    --color_ucbc-yellow: #FCB44B;
+	--color_ucbc-cyan: #4ABFAF;
+}
+
+
+/******* themes *******/
+
+body, .theme-normal, button {
+	color: var(--color_vdark);
+	background-color: var(--color_ucbc-yellow);
+
+	--color_accent: #B03020;
+}
+
+.theme-dark {
+	color: var(--color_ucbc-cyan);
+	background-color: var(--color_dark);
+}
+
+
+/******* body *********/
+
+body {
+	font-family: var(--font_text);
+	padding: 0;
+	margin: 0;
+}
+
+.hidden {
+	visibility: hidden;
+	display: none;
+}
+
+/******* headings *********/
+
+h1, h2, h3, h4, h5, h6 { 
+	font-family: var(--font_heading);
+}
+
+h1       { font-size: 2.0em;	margin: 1.4rem 0;		font-weight: 400; }
+h2       { font-size: 1.7em; 	margin: 1.2rem 0;     	font-weight: 400; }
+h3       { font-size: 1.4em; 	margin: 1.0rem 0;     	font-weight: 400; }
+h4,h5,h6 { font-size: 1.0em; 	margin: 0.5rem 0 0 0; 	font-weight: 700; }
+
+h1 {
 	width: 100%;
+	text-align: center;
+}
+
+/***** paragraphs *****/
+
+p {
+	line-height: 1.4;
+	margin: 0.6em 0;
+}
+
+.big {
+	font-size: 1.5em;
+}
+.small {
+	font-size: 0.66em;
+}
+
+/***** links *****/
+
+a {
+	font-weight: bold;
+	color: var(--color_accent);
+	text-decoration: none; 
+}
+a:hover {
+	color: var(--color_white);
+	text-decoration: underline;
+}
+
+/***** lists *****/
+
+ul, ol {
+	margin: 0.4em 0;
+	padding-left: 1.2em; 
+	list-style-position: outside;
+	line-height: 1.6;
+}
+li {
+	text-align: left;
+}
+
+/***** images *****/
+
+img {
+	margin: 1.5em 0;
+	display: block;
+	width: auto;
+	max-width: 100%; 
+}
+
+/***** horizontal line *****/
+
+hr {
+	width: 100%;
+	border: none;
+	border-bottom: 2px dashed var(--color_accent);
+	margin: 1.2em 0; 
+}
+
+
+/********* button ***********/
+
+button, .btn, input[type="submit"], input[type="button"] {
+	display: block;
+	margin: 0.2em 0;
+	border-radius: 0.4em;
+	padding: 0.1em 0.5em;
+	width: 10em;
+
+	text-align: center;
+	font-size: 1.20em;
+
+	cursor: pointer;
+
+	transition: 0.3s; /* Hover Transition Time */
+
+	background-color: var(--color_red);
+	color: var(--color_white);
+}
+
+button.gray, .btn.gray {
+	background-color: var(--color_gray-mlight);
+	color: var(--color_white);
+}
+button.red, .btn.red {
+	background-color: var(--color_red);
+	color: var(--color_white);
+}
+button.cyan, .btn.cyan {
+	background-color: var(--color_ucbc-cyan);
+	color: var(--color_white);
+}
+button:hover, .btn:hover, input[type=submit]:hover, input[type=button]:hover {
+	background-color: var(--color_dark);
+	color: var(--color_white);
+}
+
+/*** Layout ***/
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+	width: 100%;
+	min-height: 50px;
+	margin: 0;
+}
+
+.food-banner {
+	background-image: url('/static/pages/img/food_banner.jpg');
+	background-size: cover;
+	height: 20vw;
+	max-height: 200px;
+}
+
+main {
+	margin: 0px 25px;
+	width: 100%;
+	min-height: calc(100vh - 100px);
+	max-width: 800px;
+}
+
+footer {
+	padding: 5px;
+	width: 100%;
+	height: 100px;
 }

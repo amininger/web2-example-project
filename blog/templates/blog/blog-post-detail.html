@@ -3,7 +3,25 @@
 {% block 'title' %}{{ post.title }}{% endblock %}
 
 {% block 'content' %}
+<main>
     <h1>{{ post.title }}</h1>
+
+	<!-- Buttons -->
+	<p>
+		<a href="{% url 'blog:home' %}">Back to Blog</a>
+
+		{% if perms.blog.change_blogpost %}
+		<a href="{% url 'blog:post-change' post.id %}">
+			<button>Edit</button>
+		</a>
+		{% endif %}
+
+		{% if perms.blog.delete_blogpost %}
+		<a href="{% url 'blog:post-delete' post.id %}">
+			<button>Delete</button>
+		</a>
+		{% endif %}
+	</p>
 
     <p><strong>Published: </strong> {{ post.pub_date }}</p>
 
@@ -14,10 +32,6 @@
     <p>
         <em>{{ post.num_views }} Views</em>
     </p>
-
-
-
-
-
+</main>
 {% endblock %}
 

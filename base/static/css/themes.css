@@ -1,0 +1,70 @@
+@font-face { font-family: ZillaSlab; font-weight: 200; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Light.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 400; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Regular.ttf'); }
+@font-face { font-family: ZillaSlab; font-weight: 700; src: url('/static/fonts/Zilla_Slab/ZillaSlab-Bold.ttf'); }
+
+@font-face { font-family: Alfa; font-weight: 400; src: url('/static/fonts/Alfa/AlfaSlabOne-Regular.ttf'); }
+@font-face { font-family: Bungee; font-weight: 400; src: url('/static/fonts/Bungee/Bungee-Regular.ttf'); }
+@font-face { font-family: Calistoga; font-weight: 400; src: url('/static/fonts/Calistoga/Calistoga-Regular.ttf'); }
+
+
+:root {
+	--col_black: rgb(0, 0, 0);
+	--col_gray-vdark: rgb(44, 44, 44);
+	--col_gray-dark: rgb(58, 62, 63);
+	--col_gray-mdark: rgb(80, 85, 86);
+
+	--col_gray-mlight: rgb(150, 150, 150);
+	--col_gray-light: rgb(185, 185, 185);
+	--col_gray-vlight: rgb(221, 221, 221);
+	--col_white: rgb(255, 255, 255);
+
+	--col_cyan: #4EB1CB;
+	--col_red: #CF5C60;
+	--col_orange: rgb(255, 100, 73);
+	--col_purple: #717ECD;
+	--col_green: #4AB471;
+	--col_yellow: #F3AE4E;
+	--col_pink: #D96383;
+    --col_ucbc-yellow: #FCB44B;
+
+	--font_heading: "Calistoga", serif;
+	--font_ui: "ZillaSlab", serif;
+	--font_text: "ZillaSlab", sans-serif;
+
+    --col_ucbc-green: #008367;
+    --col_ucbc-orange: #E94B37;
+    --col_ucbc-yellow: #FCB44B;
+	--col_ucbc-cyan: #4ABFAF;
+	--col_ui-1: var(--col_ucbc-orange);
+	--col_ui-2: var(--col_ucbc-green);
+	--col_ui-3: var(--col_ucbc-yellow);
+	--col_ui-4: var(--col_ucbc-cyan);
+}
+
+.theme-light {
+	--col_bg: var(--col_white);
+	--col_bg-alt: var(--col_gray-vlight);
+
+	--col_header: var(--col_gray-vdark);
+	--col_text: var(--col_gray-vdark);
+	--col_text-light: var(--col_gray-dark);
+
+	--col_accent1: rgb(203, 77, 73);
+}
+
+.theme-ui {
+	--col_bg: var(--col_gray-vdark);
+	--col_bg-alt: var(--col_gray-dark);
+
+	--col_header: var(--col_gray-vlight);
+	--col_text: var(--col_gray-vlight);
+	--col_text-light: var(--col_gray-light);
+
+	--col_accent1: var(--col_orange);
+}
+
+
+.theme-dark, .theme-light, .theme-ui {
+	background-color: var(--col_bg);
+	color: var(--col_text);
+}

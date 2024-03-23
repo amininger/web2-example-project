@@ -3,13 +3,22 @@
 {% block 'title' %}Edit Blog Post{% endblock %}
 
 {% block 'content' %}
+<main>
     <h1>Edit Post: {{ post.title }}</h1>
 
     <form action="{% url 'blog:post-change' post.id %}" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
 
-        <input type="submit" value="Edit">
+		<p>
+			<input type="submit" value="Save Changes">
+		</p>
+		<p>
+			<a href="{{ post.get_absolute_url }}">
+				<input type="button" value="Back">
+			</a>
+		</p>
     </form>
+</main>
 {% endblock %}
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import permission_required
 
 from .models import BlogPost
 from .forms import SendCountryForm, BlogPostForm
@@ -12,20 +13,7 @@ def home(request):
     }
     return render(request, 'blog/home.html', data)
 
-def send_country(request):
-    if request.method == "POST":
-        form = SendCountryForm(request.POST)
-        if form.is_valid():
-            with open("countries.log", '+w') as f:
-                f.write(form.cleaned_data['country'] + "\n")
-            return redirect('/')
-
-    # Otherwise, send an empty form
-    else:
-        form = SendCountryForm()
-
-    return render(request, 'blog/send-country.html', { 'form': form })
-
+@permission_required('blog.add_blogpost', raise_exception=True)
 def blog_post_add(request):
     if request.method == "POST":
         form = BlogPostForm(request.POST)
@@ -39,6 +27,7 @@ def blog_post_add(request):
 
     return render(request, 'blog/blog-post-add.html', { 'form': form })
 
+@permission_required('blog.change_blogpost', raise_exception=True)
 def blog_post_change(request, post_id):
     blog_post = get_object_or_404(BlogPost, id=post_id)
     if request.method == "POST":
@@ -63,3 +52,16 @@ def blog_post_detail(request, post_id):
     }
     return render(request, 'blog/blog-post-detail.html', data)
 
+@permission_required('blog.delete_blogpost', raise_exception=True)
+def blog_post_delete(request, post_id):
+    blog_post = get_object_or_404(BlogPost, id=post_id)
+
+    if request.method == "POST":
+        blog_post.delete()
+        return redirect("blog:home")
+
+
+    data = {
+        'post': blog_post
+    }
+    return render(request, 'blog/blog-post-delete.html', data)

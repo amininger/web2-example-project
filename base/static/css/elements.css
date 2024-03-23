@@ -1,0 +1,208 @@
+
+/********************************* TAGS ********************************
+
+.tag - Apply to a span, creates a rounded shaded rectangle with text
+
+Can specify color by adding:
+  .yellow-tag .green-tag .blue-tag .gray-tag
+
+If it is a link, add:
+  .link-tag
+
+************************************************************************/
+
+.tag {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-decoration: none;
+  white-space: pre;
+  line-height: 2.0em;
+  margin-left: 5px;
+	font-family: var(--font_heading);
+}
+@media (min-width: 768px) { .tag{ font-size: 1.0em; } }
+
+.link-tag a {  text-decoration: none; }
+.link-tag:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.yellow-tag                { background-color: #FFC107;   color: #222; }
+.yellow-tag.link-tag:hover { background-color: #CFA105;   color: #222; }
+.green-tag                 { background-color: #28A745;   color: #fff; }
+.green-tag.link-tag:hover  { background-color: #188738;   color: #fff; }
+.blue-tag                  { background-color: #007BFF;   color: #fff; }
+.blue-tag.link-tag:hover   { background-color: #006BD0;   color: #fff; }
+.gray-tag                  { background-color: #333333;   color: #fff;  }
+.gray-tag.link-tag:hover   { background-color: #555555;   color: #fff;  }
+
+.centered-tag-list {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2em;
+}
+
+/********************************* CALLOUTS ********************************/
+
+
+.callout {
+	margin: 0.8em 0;
+	width: 100%;
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	background-color: var(--col_white);
+	color: var(--col_callout-head-text);
+}
+
+.callout-title {
+	margin: 0;
+	width: 100%;
+	padding: 0.3em 0.6em;
+
+	font-family: var(--font_heading);
+	font-size: 1.0em;
+	font-weight: bold;
+
+	background-color: var(--col_callout-head-bg);
+}
+
+.callout-title .icon {
+	margin: 0 0.3em;
+}
+
+.callout-content {
+	margin: 0;
+	width: 100%;
+	padding: 0.4em 1.2em;
+
+	background-color: var(--col_callout-body-bg);
+}
+
+.callout-content p {
+	display: block;
+	margin: 0;
+	width: 100%; 
+}
+
+.callout.note {
+	--col_callout-head-bg:  rgba(68, 138, 255, 0.2);
+	--col_callout-head-text: rgb(34, 69, 127);
+	--col_callout-body-bg: rgba(68, 138, 255, 0.1);
+}
+
+.callout.summary {
+	--col_callout-head-bg:  rgba(0, 176, 255, 0.2);
+	--col_callout-head-text: rgb(0, 88, 127);
+	--col_callout-body-bg: rgba(0, 176, 255, 0.1);
+}
+
+.callout.info {
+	--col_callout-head-bg:  rgba(0, 184, 212, 0.2);
+	--col_callout-head-text: rgb(0, 92, 106);
+	--col_callout-body-bg: rgba(0, 184, 212, 0.1);
+}
+
+.callout.tip {
+	--col_callout-head-bg:  rgba(0, 191, 165, 0.2);
+	--col_callout-head-text: rgb(0, 95, 82);
+	--col_callout-body-bg: rgba(0, 191, 165, 0.1);
+}
+
+.callout.success {
+	--col_callout-head-bg:  rgba(0, 200, 83, 0.2);
+	--col_callout-head-text: rgb(0, 100, 41);
+	--col_callout-body-bg: rgba(0, 200, 83, 0.1);
+}
+
+.callout.question {
+	--col_callout-head-bg:  rgba(100, 221, 23, 0.2);
+	--col_callout-head-text: rgb(50, 110, 11);
+	--col_callout-body-bg: rgba(100, 221, 23, 0.1);
+}
+
+.callout.warning {
+	--col_callout-head-bg:  rgba(255, 145, 0, 0.2);
+	--col_callout-head-text: rgb(127, 72, 0);
+	--col_callout-body-bg: rgba(255, 145, 0, 0.1);
+}
+
+.callout.failure {
+	--col_callout-head-bg:  rgba(255, 82, 82, 0.2);
+	--col_callout-head-text: rgb(127, 41, 41);
+	--col_callout-body-bg: rgba(255, 82, 82, 0.1);
+}
+
+.callout.error {
+	--col_callout-head-bg:  rgba(255, 23, 68, 0.2);
+	--col_callout-head-text: rgb(127, 11, 34);
+	--col_callout-body-bg: rgba(255, 23, 68, 0.1);
+}
+
+.callout.example {
+	--col_callout-head-bg:  rgba(124, 77, 255, 0.2);
+	--col_callout-head-text: rgb(63, 38, 127);
+	--col_callout-body-bg: rgba(124, 77, 255, 0.1);
+}
+
+.callout.quote {
+	--col_callout-head-bg:  rgba(158, 158, 158, 0.2);
+	--col_callout-head-text: rgb(79, 79, 79);
+	--col_callout-body-bg: rgba(158, 158, 158, 0.1);
+}
+
+/********************************* CALLOUTS ********************************/
+
+.link-list {
+    width: 100%;
+    max-width: 500px;
+	margin: 0.5em auto;
+	border: 2px solid var(--col_accent);
+	padding: 0;
+
+	--col_accent: var(--col_ui-1);
+}
+.link-list.ui2 {
+	--col_accent: var(--col_ui-2);
+}
+.link-list li {
+    width: 100%;
+
+    margin: 0;
+	border: 2px solid var(--col_accent);
+    padding: 0.2em 1em;
+
+    color: var(--col_text);
+    background-color: var(--col_bg);
+
+	font-family: var(--font_ui);
+    text-align: left;
+
+	list-style-type: "🞂 ";
+	list-style-position: inside;
+}
+.link-list a {
+    color: white;
+}
+.link-list a li:hover {
+    background-color: var(--col_accent);
+	color: white;
+}
+.link-list > li {
+    background-color: var(--col_accent);
+	color: var(--col_white);
+    text-align: center;
+    font-weight: bold;
+	border: none;
+	font-size: 1.2em;
+	list-style-type: none;
+}
+

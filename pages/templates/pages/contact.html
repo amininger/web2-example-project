@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base-template.html' %}
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block 'title' %}Contact Page{% endblock %}
 
-	<meta name="description" content="Blog about Congolese food">
-	<meta name="author" content="Aaron Mininger">
-
-	<title>Contact Page</title>
-</head>
-
-<body>
+{% block 'content' %}
+<main>
 	<h1>Contact Page</h1>
-
-	<a href="{% url 'home' %}">Back</a>
 
 	<form>
 		<p>
@@ -29,8 +18,15 @@
 			</textarea>
 		</p>
 
-		<button type="submit">Send</button>
+		<p>
+			<input type="submit" value="Send">
+		</p>
+		<p>
+			<a href="{% url 'home' %}">
+				<input type="button" value="Back">
+			</a>
+		</p>
 	</form>
-</body>
-</html>
+</main>
+{% endblock %}
 

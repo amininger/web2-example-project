@@ -1,0 +1,334 @@
+/********************** Global Settings ****************************/
+
+/* Variables */
+:root {
+	font-size: clamp(16px, 2.2vw, 20px);
+
+	--h_header: 2rem;
+	--h_footer: 5rem;
+	--w_navbar: 12rem;
+	--w_content-max: 800px;
+}
+
+/*********************** Special Media Rules *******************/
+@media print {
+	nav, header, footer {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+/******************** Top-Level Layout ****************/
+/* Fixed header at top of page
+ * Navbar on side on wide screens
+ * #page-container with main and footer i
+ ***/
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#navbar {
+	position: fixed;
+	z-index: 2;
+	left: 0px;
+}
+
+#page-container {
+	margin: 0;
+	margin-top: var(--h_header);
+
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+	position: fixed;
+	z-index: 1;
+	top: 0px;
+}
+
+main {
+	margin: 0;
+	width: 100%;
+	max-width: var(--w_content-max);
+	min-height: calc(100vh - var(--h_header) - var(--h_footer));
+}
+
+footer {
+	margin: 0;
+	width: 100%;
+	min-height: var(--h_footer);
+}
+
+/********** Top Menu Settings ************/
+@media (max-width: 768px) {
+	:root {
+		--w_navbar_cur: 0;
+	}
+	#navbar {
+		top: calc(var(--h_header) + 6px);
+		width: 100%;
+		visibility: hidden;
+	}
+	#navbar.is-visible {
+		visibility: visible;
+	}
+	#page-container {
+		margin-left: 0;
+		width: 100%;
+	}
+	header {
+		width: 100%;
+	}
+	.side-nav-only {
+		display: none;
+	}
+}
+
+/********** Side Menu Settings ************/
+@media (min-width: 768px) {
+	:root {
+		--w_navbar_cur: var(--w_navbar);
+	}
+	#navbar { 
+		top: 0;
+		width: var(--w_navbar);
+		height: 100vh;
+		padding-top: 1em;
+		border-right: solid 2px var(--col_bg);
+	}
+	#page-container {
+		margin-left: var(--w_navbar);
+		width: calc(100% - var(--w_navbar));
+	}
+	header {
+		left: var(--w_navbar);
+		width: calc(100% - var(--w_navbar));
+	}
+	.top-nav-only {
+		display: none;
+	}
+}
+
+@media print {
+	#page-container {
+		margin: 0;
+	}
+}
+
+/*************************** NAVBAR *******************************/
+/* This defines styling for a nav bar. 	
+	If the window is wide (> 768px) it is on the left and always visible
+	Otherwise, it is on the top as a hambuger nav. 
+
+	It expects that the rest of the webpage is in a top-level div called page-container */
+
+/* id:navbar - A div that contains the whole nav */
+#navbar {
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	overflow-x: hidden;
+	font-family: var(--font_ui);
+
+	font-size: 1.0em;
+}
+
+#navbar > h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.8em;
+	margin: 0.2em 0;
+}
+#navbar > h3 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.4em;
+	margin: 0.15em 0;
+}
+
+#navbar > img {
+	margin: 1em 0;
+	width: 80%;
+	padding: 3px;
+}
+#navbar > div {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#navbar {
+	--col_nav-btn: var(--col_ui-1);
+}
+#navbar .ui2 {
+	--col_nav-btn: var(--col_ui-2);
+}
+#navbar .ui3 {
+	--col_nav-btn: var(--col_ui-3);
+}
+#navbar .ui4 {
+	--col_nav-btn: var(--col_ui-4);
+}
+#navbar a {
+	margin: 1px 0;
+
+	border: none;
+	border-left: solid 0.5em var(--col_nav-btn);
+
+	padding-top: 0.25em;
+
+	display: block;
+	height: 1.7em;
+	width: 100%;
+
+	color: var(--col_text);
+	background-color: var(--col_bg-alt);
+
+	text-align: center;
+	font-size: 1.40em;
+	font-weight: bold;
+	text-decoration: none;
+}
+#navbar a:hover {
+	text-decoration: underline;
+	background-color: var(--col_nav-btn);
+}
+#navbar a.indent-1 {
+	margin-left: 1em;
+	height: 1.5em;
+	font-size: 1.2em;
+	padding-top: 0.1em;
+	width: calc(100% - 1em);
+}
+#navbar a.indent-2 {
+	margin-left: 1.5em;
+	height: 1.5em;
+	font-size: 1.2em;
+	padding-top: 0.1em;
+	width: calc(100% - 1.5em);
+}
+
+#navbar > hr {
+	margin: 0.5em 0;
+	width: 80%;
+	height: 1px;
+
+	border-bottom: 1px solid var(--col_white);
+	background-color: var(--col_bg);
+}
+
+/***************************** Header ***************************
+ * The header is a bar at the top of the screen 
+ * It has a fixed position
+ * And 3 parts: A centered h2 title, 
+ * A btn_show-nav on the left to show the menu (mobile)
+ * And other optional buttons on the right
+ ***************************************************************/
+
+header {
+	padding: 3px;
+	z-index: 2;
+	min-height: var(--h_header);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	font-family: var(--font_ui);
+	font-weight: 200;
+
+}
+
+/* id:btn_show-nav - The hamburger icon when in top mode */
+header > #btn_show-nav {
+	flex: 0 0 var(--h_header);
+	margin: 0;
+	border: none;
+	padding: 0;
+	min-width: 0;
+	height: var(--h_header);
+
+	background-image: url('/static/img/icons/nav-light.png');
+	background-color: var(--col_bg);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+header > h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+	text-align: center;
+	margin: 0;
+	flex: 1;
+}
+#header_icons {
+	flex: 0;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+#header_icons > a > img {
+	margin: 0 0.25em;
+	width: calc(0.8*var(--h_header));
+	max-width: var(--h_header);
+	height: var(--h_header);
+}
+
+/********************* main ***********************/
+
+main {
+	padding: 1.5em 1.0em 4.0em 1.0em;
+	max-width: var(--w_content-max);
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	text-align: left;
+}
+
+main ::selection, main ::-moz-selection {
+	background: var(--col_accent1);
+	color: var(--col_white);
+	display: block; 
+}
+
+main.centered {
+	align-items: center;
+	text-align: center;
+}
+
+/** Add extra side padding on very wide screens **/
+@media (min-width: 1000px) {
+	main {
+		--main-side-padding: calc(1em + (100vw - 1000px)/10);
+		max-width: calc(var(--w_content-max) + 2*var(--main-side-padding));
+		padding-left: var(--main-side-padding);
+		padding-right: var(--main-side-padding);
+	}
+}
+
+
+
+/***************************** Footer ***************************
+ * An optional section at the bottom
+ ***************************************************************/
+footer {
+	padding: 1em;
+	font-size: 0.8em;
+}
+footer > p {
+	margin: 0.5em;
+}

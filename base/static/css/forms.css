@@ -1,0 +1,74 @@
+
+form {
+	margin: 0.5em auto;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: clamp(14px, 3vw, 20px)
+}
+
+form p {
+    text-align: left;
+    margin: 0.5em 0;
+}
+
+form p label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-size: 1.2em;
+}
+
+form p input {
+    width: 100%;
+	font-size: 1.1em;
+    font-family: Tahoma, sans-serif;
+}
+form p select {
+	font-size: 1.1em;
+}
+form p input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+}
+
+form p textarea {
+    width: 100%;
+    font-family: Tahoma, sans-serif;
+}
+
+form ul, form ol {
+	text-align: left;
+	font-size: 0.8em;
+}
+
+form a {
+	font-size: 1.0em;
+}
+
+form .actions {
+    font-size: 1.5em;
+}
+
+form .errorlist {
+    font-weight: bold;
+    font-size: 1.0em;
+    color: #A00;
+}
+
+form input[type=button], form input[type=submit] {
+	display: block;
+	margin: 0.1em auto;
+
+}
+
+
+/****************** Compact Sizing *********************/
+form.compact { padding: 0.5em; }
+form.compact form p { margin: 0.2em 0; }
+
+form.compact form p label    { font-size: 1.0em; margin: 0; }
+form.compact form p input    { font-size: 0.8em; }
+form.compact form p textarea { font-size: 0.7em; }
+form.compact form p select   { font-size: 0.7em; }
